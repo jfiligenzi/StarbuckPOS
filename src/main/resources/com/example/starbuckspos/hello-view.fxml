@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.starbuckspos.HelloController">
+   <children>
+      <ChoiceBox fx:id="frappucinoChoice" layoutX="1027.0" layoutY="200.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="coffeeChoice" layoutX="565.0" layoutY="200.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="teaChoice" layoutX="719.0" layoutY="200.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="beverageChoice" layoutX="873.0" layoutY="200.0" prefWidth="150.0" />
+      <Label alignment="CENTER" layoutX="568.0" layoutY="168.0" prefHeight="25.0" prefWidth="150.0" text="Coffee" />
+      <Label alignment="CENTER" layoutX="719.0" layoutY="168.0" prefHeight="25.0" prefWidth="150.0" text="Tea" />
+      <Label alignment="CENTER" layoutX="873.0" layoutY="168.0" prefHeight="25.0" prefWidth="150.0" text="Beverage" />
+      <Label alignment="CENTER" layoutX="1027.0" layoutY="168.0" prefHeight="25.0" prefWidth="150.0" text="Frappucino" />
+      <Label fx:id="finalLabel" layoutX="43.0" layoutY="44.0" prefHeight="370.0" prefWidth="486.0" text="Label" wrapText="true" />
+   </children>
+</AnchorPane>

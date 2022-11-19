@@ -1,0 +1,3 @@
+coffee	Pike Place	"tall,venti,grande"	"1.20,2.00,3.00"	medium
+coffee	Dark Roast	"tall,venti,grande"	"1.20,2.00,3.01"	dark
+coffee	Blonde Roast	"tall,venti,grande"	"1.20,2.00,3.02"	light
