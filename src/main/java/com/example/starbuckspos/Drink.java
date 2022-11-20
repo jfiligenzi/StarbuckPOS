@@ -1,5 +1,7 @@
 package com.example.starbuckspos;
 
+import java.util.Arrays;
+
 public class Drink {
     protected String drinkType;
     protected String drinkName;
@@ -12,6 +14,10 @@ public class Drink {
         this.drinkName = drinkName;
         this.drinkPrice = drinkPrice;
         this.drinkSize = drinkSize;
+    }
+
+    public Drink() {
+
     }
 
     public String getDrinkType() {
@@ -50,8 +56,8 @@ public class Drink {
     public String toString() {
         return "Drink{" +
                 "drinkName='" + drinkName + '\'' +
-                ", drinkPrice='" + drinkPrice +
-                ", drinkSize='" + drinkSize + '\'' +
+                ", drinkPrice='" + Arrays.toString(drinkPrice) +
+                ", drinkSize='" + Arrays.toString(drinkSize) + '\'' +
                 '}';
     }
 }

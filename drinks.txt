@@ -1,8 +1,20 @@
-beverage	Cafe Latte	tall,grande,venti	1,2,3	2	2%	None	false
-coffee	Dark Roast	tall,venti,grande	1.20,2.00,3.01	dark
-coffee	Blonde Roast	tall,venti,grande	1.20,2.00,3.02	light
-coffee	woooow	tall,grande,venti	1,2,3	medium
-coffee	Pike Place	tall,venti,grande	1.20,2.00,3.00	medium
-coffee	out of place	tall,grande,venti	1,2,3	medium
-frappucino	Caramel Frappucino	tall,grande,venti	1,2,3	Whole	false	Whipped Cream + Caramel Drizzle
-tea	Passion Tea	tall,grande,venti,trenta	1,2,3,4	Passion	Water
+coffee	Pike Place	"tall,grande,venti"	"2.25,2.45,2.95"	medium			
+coffee	Dark Roast	"tall,grande,venti"	"2.25,2.45,2.95"	dark			
+coffee	Blonde Roast	"tall,grande,venti"	"2.25,2.45,2.95"	blonde			
+coffee	Pour Over	"tall,grande,venti"	"2.25,2.45,2.95"	custom			
+beverage	Latte	"tall,grande,venti"	"4.95,5.45,5.99"	2	2% Milk	none	FALSE
+beverage	Mocha	"tall,grande,venti"	"4.95,5.45,5.99"	2	2% Milk	Whipped Cream + Mocha Drizzle	FALSE
+beverage	White Mocha	"tall,grande,venti"	"4.95,5.45,5.99"	2	2% Milk	Whipped Cream	FALSE
+beverage	Caramel Macchiato	"tall,grande,venti"	"4.95,5.45,5.99"	2	2% Milk	Caramel Drizzle	FALSE
+beverage	Espresso Shots	"tall,grande,venti"	"4.95,5.45,5.99"	2	none	none	FALSE
+beverage	Flat White	"tall,grande,venti"	"4.95,5.45,5.99"	3	Whole Milk	none	FALSE
+beverage	Hot Chocolate	"tall,grande,venti"	"4.95,5.45,5.99"	0	2% Milk	Whipped Cream	FALSE
+beverage	Caramel Apple Spice	"tall,grande,venti"	"4.95,5.45,5.99"	0	Apple Juice	Whipped Cream + Caramel Drizzle	FALSE
+tea	Passion Tea	"tall,grande,venti,trenta"	"3.25,3.55,3.95,4.25"	Passion	Water		
+tea	Black Tea	"tall,grande,venti,trenta"	"3.25,3.55,3.95,4.25"	Black	Water		
+tea	Green Tea	"tall,grande,venti,trenta"	"3.25,3.55,3.95,4.25"	Green	Water		
+tea	Hot Tea	"tall,grande,venti,trenta"	"3.25,3.55,3.95,4.25"	Custom	Water		
+frappucino	Caramel Frappucino	"tall,grande,venti"	"5.25,5.95,6.45"	Whole Milk	FALSE	Whipped Cream + Caramel Drizzle	
+frappucino	Mocha Frappucino	"tall,grande,venti"	"5.25,5.95,6.45"	Whole Milk	FALSE	Whipped Cream + Mocha Drizzle	
+frappucino	Vanilla Bean Frappucino	"tall,grande,venti"	"5.25,5.95,6.45"	Whole Milk	TRUE	Whipped Cream	
+frappucino	Matcha Frappucino	"tall,grande,venti"	"5.25,5.95,6.45"	Whole Milk	TRUE	Whipped Cream + Matcha Drizzle	

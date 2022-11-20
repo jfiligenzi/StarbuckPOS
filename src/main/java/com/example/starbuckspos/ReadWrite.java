@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReadWrite {
+    //Opens file and then sorts between coffee,tea,beverage, and frappucino as they're all handled differently
     public static void openFile(ArrayList<Drink> drinks, String fileName) throws IOException {
         String result = "";
         String size[] = new String[0];
@@ -124,6 +125,7 @@ public class ReadWrite {
         }
     }
 
+    //Saves file similar to how it is read based on a coffee/beverage/frappucino/tea system
     public static void saveFile(ArrayList<Drink> drinks, String fileName) throws IOException {
         File fileObj = new File(fileName);
         PrintWriter fileOut = new PrintWriter(fileObj);
@@ -153,6 +155,7 @@ public class ReadWrite {
         fileOut.close();
     }
 
+    //Sorts the file alphabetically as that's the only thing that really needed to be sorted
     public static void sort(ArrayList<Drink> drinks) {
         sort(drinks, 0, drinks.size() - 1);
     }

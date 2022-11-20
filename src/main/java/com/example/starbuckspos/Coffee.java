@@ -20,12 +20,9 @@ public class Coffee extends Drink{
 
     @Override
     public String toString() {
-        return "Coffee{" +
-                "brewType='" + brewType + '\'' +
-                ", drinkType='" + drinkType + '\'' +
-                ", drinkName='" + drinkName + '\'' +
-                ", drinkSize=" + Arrays.toString(drinkSize) +
-                ", drinkPrice=" + Arrays.toString(drinkPrice) +
-                '}';
+        return drinkName + "\nSizes: " + Arrays.toString(drinkSize) +
+                "\nPrices: " + Arrays.toString(drinkPrice) +
+                "\nBrew Type: " + brewType;
     }
+
 }

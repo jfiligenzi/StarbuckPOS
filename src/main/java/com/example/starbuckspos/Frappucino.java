@@ -40,13 +40,10 @@ public class Frappucino extends Drink{
 
     @Override
     public String toString() {
-        return "Frappucino{" +
-                "drinkName='" + drinkName + '\'' +
-                ", drinkSize=" + Arrays.toString(drinkSize) +
-                ", drinkPrice=" + Arrays.toString(drinkPrice) +
-                ", drinkLiquid='" + drinkLiquid + '\'' +
-                ", isCremeBase=" + isCremeBase +
-                ", drinkToppings='" + drinkToppings + '\'' +
-                '}';
+        return drinkName + "\nSizes: " + Arrays.toString(drinkSize) +
+                "\nPrices: " + Arrays.toString(drinkPrice) +
+                "\nCreme Base?: " + isCremeBase +
+                "\nLiquid type: " + drinkLiquid +
+                "\nDrink Toppings: " + drinkToppings;
     }
 }

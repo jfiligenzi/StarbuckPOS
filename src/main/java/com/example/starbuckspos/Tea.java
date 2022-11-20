@@ -30,12 +30,9 @@ public class Tea extends Drink{
 
     @Override
     public String toString() {
-        return "Tea{" +
-                "drinkName='" + drinkName + '\'' +
-                ", drinkSize=" + Arrays.toString(drinkSize) +
-                ", drinkPrice=" + Arrays.toString(drinkPrice) +
-                ", teaBase='" + teaBase + '\'' +
-                ", teaAddition='" + teaAddition + '\'' +
-                '}';
+        return drinkName + "\nSizes: " + Arrays.toString(drinkSize) +
+                "\nPrices: " + Arrays.toString(drinkPrice) +
+                "\nTea base: " + teaBase +
+                "\nTea addition: " + teaAddition;
     }
 }

@@ -6,19 +6,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /*
 Current application is in beta as it features to meet requirements but not all are implemented through the GUI
-- GUI currently can select and show drink recipes
+- GUI currently allows for 'orders' to be made where you can submit names and hit the buttons to add drinks to the orders
 - Read/Write, and Sort features are available through main
-- Using recursion to sort as it fits my needs best for sorting alphabetically as I'm just comparing and sorting by drink type for data and there isn't much data
-
-
-
+- Sorting is done by recursion as nothing else aside from the drinks.txt needs to be sorted for now
+- A queue handles the current drinks in the order, while a map handles the order number and name (to be linked with transaction later)
+- Commented out text below allows to test write/sort features
  */
 
 public class HelloApplication extends Application {
+
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -26,13 +26,22 @@ public class HelloApplication extends Application {
         stage.setTitle("StarbucksPOS ver1.0");
         stage.setScene(scene);
         stage.show();
-
     }
 
-    private static ArrayList<Drink> drinks = new ArrayList<Drink>();
+
 
     public static void main(String[] args) throws IOException {
         launch();
+//        ReadWrite.openFile(drinks, "drinks.txt");
+//        java.util.Queue<Drink> drinkQueue = new java.util.LinkedList<>();
+//        System.out.println(drinks.toString());
+//        drinkQueue.offer(drinks.get(1));
+//        for(int i = 0; i < 4; i++) {
+//            drinkQueue.offer(drinks.get(i));
+//        }
+//        while(drinkQueue.size() > 0) {
+//            System.out.println(drinkQueue.remove().getDrinkName() + " ");
+//        }
 //        ReadWrite.openFile(drinks, "drinks.txt");
 //        ReadWrite.sort(drinks);
 //        System.out.println(drinks.get(2).toString());
@@ -48,7 +57,5 @@ public class HelloApplication extends Application {
 //        ReadWrite.saveFile(drinks, "drinks.txt");
 
     }
-
-
 
 }
