@@ -5,10 +5,10 @@ This software is to be used in a training setting along with allowing users to i
 
 Current working features:
 
-open from data file
-save to data file
-JavaFX GUI to read off drink recipes and add to queue for order
-ArrayList format for data
-UML file included
-Sorting feature to find drinks
-map for order numbers and names
+- open from data file
+- save to data file
+- JavaFX GUI to read off drink recipes and add to queue for order
+- ArrayList format for data
+- UML file included
+- Sorting feature to find drinks
+- map for order numbers and names
