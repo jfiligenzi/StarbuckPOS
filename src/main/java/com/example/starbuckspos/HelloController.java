@@ -11,9 +11,8 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.Hashtable;
 import java.util.ResourceBundle;
-import java.util.TreeMap;
 
 public class HelloController implements Initializable {
     //Creates drink array list
@@ -21,10 +20,9 @@ public class HelloController implements Initializable {
     //Creates drink queue
     java.util.Queue<Drink> drinkQueue = new java.util.LinkedList<>();
     //Creates map for customer names
-    Map<Integer, String> customerName = new TreeMap<>();
+    Hashtable<String, Integer> customerName = new Hashtable<>();
     //Creates order number
-    int orderNumber = 0;
-
+    binarySearchTree<Transaction> transactionList = new binarySearchTree<>();
 
     //Initializes all the buttons,labels, and stuff
     @FXML
@@ -94,34 +92,68 @@ public class HelloController implements Initializable {
     private Button customTeaButton;
 
     @FXML
-    private Button printQueueButton;
-
-    @FXML
     private TextField customerNameField;
 
     @FXML
     private Label currentOrders;
 
+    @FXML
+    private Button finishOrder;
+
+    @FXML
+    private Button showOrder;
+
+    @FXML
+    private Button debugButton;
+
+    @FXML
+    void debugButtonClicked(ActionEvent event) {
+        transactionList.inorder();
+        System.out.println("\n-=BREAK=-\n");
+        transactionList.preorder();
+        System.out.println("\n-=BREAK=-\n");
+        transactionList.postorder();
+        System.out.println("\n-=BREAK=-\n");
+        System.out.println("BST size: " + transactionList.getSize());
+        System.out.println("\n-=BREAK=-\n");
+        System.out.println("Size of Hashtable: " + customerName.size());
+        System.out.println("Hashtable:\n" + customerName);
+
+
+    }
+
+    @FXML
+    void showOrdersButton(ActionEvent event) {
+        String text = "";
+        currentOrders.setText(text);
+    }
+
+    @FXML
+    private TextField searchOrdersText;
+
     //On enter button press will update customer name map
     @FXML
-    void updateCustomerName(ActionEvent event) {
-        System.out.println("test");
-        customerName.put(orderNumber, customerNameField.getText());
-        currentOrders.setText(customerName.toString());
-        orderNumber = orderNumber + 1;
+    void searchCustomerName(ActionEvent event) {
+
     }
 
-    //Prints the drink queue
     @FXML
-    void printButtonClicked(ActionEvent event) {
-        String printString = "";
+    void finishOrderButton(ActionEvent event) {
+        //Adds current drinks in order to a transaction and then adds the transaction to a transaction BST
+        ArrayList<Drink> currentDrinks = new ArrayList<Drink>();
+        Transaction transaction = new Transaction();
         while(drinkQueue.size() > 0) {
-            printString += drinkQueue.remove().toString() + "\n\n";
+            currentDrinks.add(drinkQueue.remove());
         }
-        finalLabel.setText("Customer Name: " + customerName.get(orderNumber - 1) + "\nCurrent Order:\n" + printString);
+        transaction.setCustomerName(customerNameField.getText());
+        transaction.setDrinks(currentDrinks);
+        transactionList.insert(transaction);
+
+
+        //Creates a hash map for the customer name and order number
+        Hash orderNumber = new Hash(customerNameField.getText());
+        customerName.put(customerNameField.getText(), orderNumber.hashValue);
     }
-
-
 
     //Buttons for every drink
     @FXML
@@ -215,11 +247,13 @@ public class HelloController implements Initializable {
             drinkQueue.offer(currentDrink);
         }
 
+        finalLabel.setText(currentDrink.toString());
+
     }
 
     private String[] coffees;
 
-    //currently unneeded
+    //Choice Box in case extra drinks are added
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Drink> drinks = new ArrayList<Drink>();
@@ -227,6 +261,10 @@ public class HelloController implements Initializable {
             ReadWrite.openFile(drinks, "drinks.txt");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        for(int i = 0; i < drinks.size(); i++) {
+            extraDrinkChoice.getItems().add(drinks.get(i).getDrinkName());
         }
 
     }
@@ -239,5 +277,22 @@ public class HelloController implements Initializable {
             }
         }
         return null;
+    }
+
+    class Hash {
+        final int p = 31;
+        final int m = 1000000007;
+        int hashValue;
+        Hash(String string) {
+            int currentHash = 0;
+            final char[] s = string.toCharArray();
+            long power = 1;
+            final int n = string.length();
+            for(int i = 0; i < n; i++) {
+                currentHash = (int)((currentHash + (s[i] - 'a' + 1) * power) % m);
+                power = (power * p) % m;
+            }
+            hashValue = currentHash;
+        }
     }
 }

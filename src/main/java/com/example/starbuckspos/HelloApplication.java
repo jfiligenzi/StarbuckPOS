@@ -32,6 +32,9 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) throws IOException {
         launch();
+
+//        binarySearchTree<String> tree = new binarySearchTree<>();
+//        tree.insert();
 //        ReadWrite.openFile(drinks, "drinks.txt");
 //        java.util.Queue<Drink> drinkQueue = new java.util.LinkedList<>();
 //        System.out.println(drinks.toString());
@@ -59,3 +62,5 @@ public class HelloApplication extends Application {
     }
 
 }
+
+

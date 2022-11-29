@@ -10,7 +10,7 @@
    <children>
       <ChoiceBox fx:id="extraDrinkChoice" layoutX="1105.0" layoutY="50.0" prefWidth="150.0" />
       <Label alignment="CENTER" layoutX="1105.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" text="Extra Drinks" />
-      <Label fx:id="finalLabel" layoutX="43.0" layoutY="70.0" prefHeight="625.0" prefWidth="410.0" text="Press Print Drink Queue to print your order!" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="finalLabel" layoutX="43.0" layoutY="70.0" prefHeight="240.0" prefWidth="410.0" text="Current Drink" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="pikeButton" layoutX="480.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Pike Place" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="darkButton" layoutX="480.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Dark Roast" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="blondeButton" layoutX="480.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Blonde Roast" textAlignment="CENTER" wrapText="true" />
@@ -31,9 +31,12 @@
       <Button fx:id="blackTeaButton" layoutX="980.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Black Tea" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="greenTeaButton" layoutX="980.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Green Tea" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="customTeaButton" layoutX="980.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Hot Tea" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="printQueueButton" layoutX="43.0" layoutY="25.0" mnemonicParsing="false" onAction="#printButtonClicked" text="Print Drink Queue" />
-      <TextField fx:id="customerNameField" layoutX="174.0" layoutY="25.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Name" />
-      <Button fx:id="enterButton" layoutX="382.0" layoutY="25.0" mnemonicParsing="false" onAction="#updateCustomerName" text="Enter" />
-      <Label fx:id="currentOrders" layoutX="480.0" layoutY="527.0" prefHeight="152.0" prefWidth="608.0" text="Current Orders" />
+      <TextField fx:id="customerNameField" layoutX="43.0" layoutY="25.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Name" />
+      <Button fx:id="enterButton" layoutX="683.0" layoutY="527.0" mnemonicParsing="false" onAction="#searchCustomerName" text="Enter" />
+      <Label fx:id="currentOrders" layoutX="32.0" layoutY="375.0" prefHeight="313.0" prefWidth="417.0" text="Current Orders" />
+      <Button fx:id="finishOrder" layoutX="43.0" layoutY="325.0" mnemonicParsing="false" onAction="#finishOrderButton" prefHeight="25.0" prefWidth="175.0" text="Finish Order" />
+      <Button fx:id="showOrder" layoutX="248.0" layoutY="325.0" mnemonicParsing="false" onAction="#showOrdersButton" prefHeight="25.0" prefWidth="175.0" text="Show Orders" />
+      <TextField fx:id="searchOrdersText" layoutX="480.0" layoutY="527.0" prefHeight="25.0" prefWidth="188.0" promptText="Search Orders (Customer Name)" />
+      <Button fx:id="debugButton" layoutX="397.0" layoutY="25.0" mnemonicParsing="false" onAction="#debugButtonClicked" text="Debug" />
    </children>
 </AnchorPane>
