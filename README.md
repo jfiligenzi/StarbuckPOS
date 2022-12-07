@@ -11,4 +11,6 @@ Current working features:
 - ArrayList format for data
 - UML file included
 - Sorting feature to find drinks
-- map for order numbers and names
+- hashtable for order numbers and names
+- BST for holding transactions and eventually searching them
+- Updated GUI
