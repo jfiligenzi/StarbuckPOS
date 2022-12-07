@@ -5,12 +5,12 @@ This software is to be used in a training setting along with allowing users to i
 
 Current working features:
 
-- open from data file
-- save to data file
-- JavaFX GUI to read off drink recipes and add to queue for order
-- ArrayList format for data
-- UML file included
-- Sorting feature to find drinks
-- hashtable for order numbers and names
-- BST for holding transactions and eventually searching them
-- Updated GUI
+- Name changed to SpaceBux to avoid copyright
+- All drinks are stored in a data file
+- Read/Write, and Sort features are available through main or editing the file itself
+- inorder traversal searching using recursion allowing for you to find orders based on the customers name <--- improvement of my choice
+- A queue handles the current drinks in the order with a hashtable checking to see if a last name is needed
+- Networking enabled printing feature that will print a list of drinks right to your printer!
+- A fancy BST that stores all the transactions
+- Other general features include ArrayList data structures, linked lists, color coded GUI
+- debug button is used for printing to console
