@@ -3,7 +3,7 @@ package com.example.starbuckspos;
 import java.util.ArrayList;
 
 public class Transaction implements Comparable<Transaction>{
-    private String customerName;
+    public String customerName;
     private ArrayList<Drink> drinks;
     private String paymentMethod;
     private double total;

@@ -9,26 +9,26 @@ import java.io.IOException;
 
 /*
 Current application is in beta as it features to meet requirements but not all are implemented through the GUI
-- GUI currently allows for 'orders' to be made where you can submit names and hit the buttons to add drinks to the orders
-- Read/Write, and Sort features are available through main
-- Sorting is done by recursion as nothing else aside from the drinks.txt needs to be sorted for now
-- A queue handles the current drinks in the order, while a map handles the order number and name (to be linked with transaction later)
-- Commented out text below allows to test write/sort features
+- Name changed to SpaceBux to avoid copyright
+- Read/Write, and Sort features are available through main or editing the file itself
+- inorder traversal searching using recursion allowing for you to find orders based on the customers name <--- improvement of my choice
+- A queue handles the current drinks in the order with a hashtable checking to see if a last name is needed
+- Networking enabled printing feature that will print a list of drinks right to your printer!
+- A fancy BST that stores all the transactions
+- Other general features include ArrayList data structures, linked lists, color coded GUI
+- debug button is used for printing to console
  */
 
 public class HelloApplication extends Application {
-
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-        stage.setTitle("StarbucksPOS ver1.0");
+        stage.setTitle("SpaceBux ver1.4");
         stage.setScene(scene);
         stage.show();
     }
-
-
 
     public static void main(String[] args) throws IOException {
         launch();
@@ -58,9 +58,7 @@ public class HelloApplication extends Application {
 //        drinks.add(new Frappucino("frappucino", "Caramel Frappucino", new String[]{"tall","grande","venti"}, new String[]{"1","2","3"}, "Whole", false, "Whipped Cream + Caramel Drizzle"));
 //        System.out.println(drinks.get(6).toString());
 //        ReadWrite.saveFile(drinks, "drinks.txt");
-
     }
-
 }
 
 

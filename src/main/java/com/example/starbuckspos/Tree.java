@@ -12,7 +12,7 @@ public interface Tree<E> extends Collection<E> {
 
     public int getSize();
 
-    public default void inorder() {
+    public default void inorder() throws NoSuchFieldException, IllegalAccessException {
 
     }
 
@@ -23,7 +23,6 @@ public interface Tree<E> extends Collection<E> {
     public default void postorder() {
 
     }
-
     @Override
     public default boolean isEmpty() {
         return size() == 0;

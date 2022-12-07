@@ -5,38 +5,54 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.starbuckspos.HelloController">
    <children>
       <ChoiceBox fx:id="extraDrinkChoice" layoutX="1105.0" layoutY="50.0" prefWidth="150.0" />
-      <Label alignment="CENTER" layoutX="1105.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" text="Extra Drinks" />
-      <Label fx:id="finalLabel" layoutX="43.0" layoutY="70.0" prefHeight="240.0" prefWidth="410.0" text="Current Drink" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="pikeButton" layoutX="480.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Pike Place" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="darkButton" layoutX="480.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Dark Roast" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="blondeButton" layoutX="480.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Blonde Roast" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="pourButton" layoutX="480.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Pour Over" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="latteButton" layoutX="605.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Latte" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="mochaButton" layoutX="605.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Mocha" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="whiteMochaButton" layoutX="605.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="White Mocha" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="caramelMachButton" layoutX="605.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Caramel Macchiato" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="espressoButton" layoutX="730.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Espresso Shots" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="flatWhiteButton" layoutX="730.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Flat White" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="hotChocolateButton" layoutX="730.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Hot Chocolate" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="caramelAppleButton" layoutX="730.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Caramel Apple Spice" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="caramelFrapButton" layoutX="855.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Caramel Frappucino" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="mochaFrapButton" layoutX="855.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Mocha Frappucino" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="vanillaBeanFrapButton" layoutX="855.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Vanilla Bean Frappucino" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="matchaFrapButton" layoutX="855.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Matcha Frappucino" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="passionTeaButton" layoutX="980.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Passion Tea" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="blackTeaButton" layoutX="980.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Black Tea" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="greenTeaButton" layoutX="980.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Green Tea" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="customTeaButton" layoutX="980.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" text="Hot Tea" textAlignment="CENTER" wrapText="true" />
-      <TextField fx:id="customerNameField" layoutX="43.0" layoutY="25.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Name" />
-      <Button fx:id="enterButton" layoutX="683.0" layoutY="527.0" mnemonicParsing="false" onAction="#searchCustomerName" text="Enter" />
-      <Label fx:id="currentOrders" layoutX="32.0" layoutY="375.0" prefHeight="313.0" prefWidth="417.0" text="Current Orders" />
-      <Button fx:id="finishOrder" layoutX="43.0" layoutY="325.0" mnemonicParsing="false" onAction="#finishOrderButton" prefHeight="25.0" prefWidth="175.0" text="Finish Order" />
-      <Button fx:id="showOrder" layoutX="248.0" layoutY="325.0" mnemonicParsing="false" onAction="#showOrdersButton" prefHeight="25.0" prefWidth="175.0" text="Show Orders" />
+      <Label alignment="CENTER" layoutX="1105.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" style="-fx-text-fill: goldenrod; -fx-font-size: 14px;" text="Extra Drinks" />
+      <Label fx:id="finalLabel" alignment="CENTER" layoutX="43.0" layoutY="70.0" prefHeight="240.0" prefWidth="410.0" text="Current Drink" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="pikeButton" layoutX="480.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: darkgoldenrod; -fx-font-size: 14px;" text="Pike Place" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="darkButton" layoutX="480.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: darkgoldenrod; -fx-font-size: 14px;" text="Dark Roast" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="blondeButton" layoutX="480.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: darkgoldenrod; -fx-font-size: 14px;" text="Blonde Roast" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="pourButton" layoutX="480.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: darkgoldenrod; -fx-font-size: 14px;" text="Pour Over" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="latteButton" layoutX="605.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: darkgray; -fx-font-size: 14px;" text="Latte" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="mochaButton" layoutX="605.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: brown; -fx-font-size: 14px;" text="Mocha" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="whiteMochaButton" layoutX="605.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: skyblue; -fx-font-size: 14px;" text="White Mocha" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="caramelMachButton" layoutX="605.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: orange; -fx-font-size: 14px;" text="Caramel Macchiato" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="espressoButton" layoutX="730.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: black; -fx-font-size: 14px;" text="Espresso Shots" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="flatWhiteButton" layoutX="730.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: skyblue; -fx-font-size: 14px;" text="Flat White" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="hotChocolateButton" layoutX="730.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: brown; -fx-font-size: 14px;" text="Hot Chocolate" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="caramelAppleButton" layoutX="730.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: sandybrown; -fx-font-size: 14px;" text="Caramel Apple Spice" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="caramelFrapButton" layoutX="855.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: orange; -fx-font-size: 14px;" text="Caramel Frappucino" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="mochaFrapButton" layoutX="855.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: brown; -fx-font-size: 14px;" text="Mocha Frappucino" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="vanillaBeanFrapButton" layoutX="855.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: sandybrown; -fx-font-size: 14px;" text="Vanilla Bean Frappucino" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="matchaFrapButton" layoutX="855.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: green; -fx-font-size: 14px;" text="Matcha Frappucino" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="passionTeaButton" layoutX="980.0" layoutY="25.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: magenta; -fx-font-size: 14px;" text="Passion Tea" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="blackTeaButton" layoutX="980.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: black; -fx-font-size: 14px;" text="Black Tea" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="greenTeaButton" layoutX="980.0" layoutY="275.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: green; -fx-font-size: 14px;" text="Green Tea" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="customTeaButton" layoutX="980.0" layoutY="400.0" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="100.0" prefWidth="100.0" style="-fx-text-fill: skyblue; -fx-font-size: 14px;" text="Hot Tea" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="customerNameField" layoutX="121.0" layoutY="28.0" prefHeight="25.0" prefWidth="195.0" promptText="Customer Name">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button fx:id="enterButton" layoutX="683.0" layoutY="527.0" mnemonicParsing="false" onAction="#searchCustomerName" style="-fx-text-fill: goldenrod; -fx-font-size: 14px;" text="Enter" />
+      <Label fx:id="currentOrders" layoutX="32.0" layoutY="375.0" prefHeight="313.0" prefWidth="417.0" text="Search Orders to Display Here">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="finishOrder" layoutX="131.0" layoutY="325.0" mnemonicParsing="false" onAction="#finishOrderButton" prefHeight="25.0" prefWidth="175.0" style="-fx-text-fill: goldenrod; -fx-font-size: 14px;" text="Finish Order">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <TextField fx:id="searchOrdersText" layoutX="480.0" layoutY="527.0" prefHeight="25.0" prefWidth="188.0" promptText="Search Orders (Customer Name)" />
-      <Button fx:id="debugButton" layoutX="397.0" layoutY="25.0" mnemonicParsing="false" onAction="#debugButtonClicked" text="Debug" />
+      <Button fx:id="debugButton" layoutX="397.0" layoutY="25.0" mnemonicParsing="false" onAction="#debugButtonClicked" style="-fx-text-fill: goldenrod; -fx-font-size: 14px;" text="Debug">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="printTransactionButton" layoutX="1139.0" layoutY="676.0" mnemonicParsing="false" onAction="#printTransactionClicked" prefHeight="25.0" prefWidth="115.0" text="Print Transactions" />
    </children>
 </AnchorPane>

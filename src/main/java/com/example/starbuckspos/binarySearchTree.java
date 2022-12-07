@@ -1,16 +1,13 @@
 package com.example.starbuckspos;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class binarySearchTree<E> implements Tree<E> {
     protected TreeNode<E> root;
     protected int size = 0;
     protected java.util.Comparator<E> c;
-
-    /** I somehow need to change it so that I can hold all the transactions still here but search by their name or a number associated with their name
-     *  in the case of connecting this with the hashmap that's created when I finish the transaction? Maybe that involves using something other than a BST,
-     *  but we'll see. Hoping this is good enough for this version as some of it is functional.
-     */
 
     //Default Binary Search Tree with natural order comparator
     public binarySearchTree() {
@@ -84,6 +81,87 @@ public class binarySearchTree<E> implements Tree<E> {
         return new TreeNode<>(e);
     }
 
+//    //Recursive call for searching name
+//    public Transaction searchName(String customerName) throws NoSuchFieldException, IllegalAccessException {
+//        System.out.println("break\n" + searchName(root, customerName) + "break\n");
+//        if(searchName(root, customerName).getCustomerName().equalsIgnoreCase(customerName)) {
+//            System.out.println("HERE HERE HERE made it here");
+//            return (Transaction) root.element;
+//        } else {
+//            System.out.println("returned through else \n");
+//            return searchName(root, customerName);
+//        }
+//
+//
+//
+////        return searchName(root, customerName);
+////        return null;
+//    }
+//
+//    //Inorder traversal from root searching for name
+//    public Transaction searchName(TreeNode<E> root, String customerName) throws NoSuchFieldException, IllegalAccessException {
+//        //if root is null, return null
+//        if (root == null) return null;
+//        String nameValue = "";
+//
+//        //searches left first
+//        System.out.println("Searches name from the left\n");
+//        searchName(root.left, customerName);
+//
+//        //creates a field for the customer name and gets the value of it, then goes to string
+//        Field nameField = root.element.getClass().getField("customerName");
+//        Object value = nameField.get(root.element);
+//        System.out.println("root.element = " + value);
+//        nameValue = value.toString();
+//
+//        //if name value matches customer name, return the transaction
+//        if(nameValue.equalsIgnoreCase(customerName)) {
+//            System.out.print(root.element + "should return correct element\n");
+//            return (Transaction) root.element;
+//        } else {
+//            //else checks right node and continues
+//            System.out.println("searches right \n");
+//            searchName(root.right, customerName);
+//           return (Transaction) root.element;
+//        }
+//        //if nothing return null
+////        return null;
+//    }
+
+    //Inorder traversal from root searching for name
+    public void inOrderName(String customerName, ArrayList<Transaction> output) throws NoSuchFieldException, IllegalAccessException {
+        inOrderName(root, customerName, output);
+    }
+
+    public void inOrderName(TreeNode<E> root, String customerName, ArrayList<Transaction> output) throws NoSuchFieldException, IllegalAccessException {
+        if (root == null) return;
+        //Searches left first
+        inOrderName(root.left, customerName, output);
+        Field nameField = root.element.getClass().getField("customerName");
+        Object value = nameField.get(root.element);
+//        System.out.println("root.element = " + value);
+        String nameValue = value.toString();
+        if(nameValue.equalsIgnoreCase(customerName)) {
+//            System.out.println(root.element);
+            //Adds Transaction to a transaction list if match
+            output.add((Transaction) root.element);
+//            System.out.println(output);
+        }
+        //Searches right
+        inOrderName(root.right, customerName, output);
+    }
+
+    public void inOrderReturnTransaction(ArrayList<Transaction> output) {
+        inOrderReturnTransaction(root, output);
+    }
+
+    public void inOrderReturnTransaction(TreeNode<E> root, ArrayList<Transaction> output) {
+        if (root == null) return;
+        inOrderReturnTransaction(root.left, output);
+        output.add((Transaction) root.element);
+        inOrderReturnTransaction(root.right, output);
+    }
+
     //Inorder traversal from the root
     @Override
     public void inorder() {
@@ -93,7 +171,7 @@ public class binarySearchTree<E> implements Tree<E> {
     protected void inorder(TreeNode<E> root) {
         if (root == null) return;
         inorder(root.left);
-        System.out.print(root.element + " ");
+        System.out.println(root.element + " ");
         inorder(root.right);
     }
 

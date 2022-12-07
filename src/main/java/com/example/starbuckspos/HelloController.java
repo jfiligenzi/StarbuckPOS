@@ -3,15 +3,16 @@ package com.example.starbuckspos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -20,9 +21,10 @@ public class HelloController implements Initializable {
     //Creates drink queue
     java.util.Queue<Drink> drinkQueue = new java.util.LinkedList<>();
     //Creates map for customer names
-    Hashtable<String, Integer> customerName = new Hashtable<>();
+    Hashtable<String, Integer> customerNameTable = new Hashtable<>();
     //Creates order number
     binarySearchTree<Transaction> transactionList = new binarySearchTree<>();
+    int orderNumber = 0;
 
     //Initializes all the buttons,labels, and stuff
     @FXML
@@ -107,7 +109,10 @@ public class HelloController implements Initializable {
     private Button debugButton;
 
     @FXML
-    void debugButtonClicked(ActionEvent event) {
+    private Button printTransactionButton;
+
+    @FXML
+    void debugButtonClicked(ActionEvent event) throws NoSuchFieldException, IllegalAccessException {
         transactionList.inorder();
         System.out.println("\n-=BREAK=-\n");
         transactionList.preorder();
@@ -116,16 +121,9 @@ public class HelloController implements Initializable {
         System.out.println("\n-=BREAK=-\n");
         System.out.println("BST size: " + transactionList.getSize());
         System.out.println("\n-=BREAK=-\n");
-        System.out.println("Size of Hashtable: " + customerName.size());
-        System.out.println("Hashtable:\n" + customerName);
-
-
-    }
-
-    @FXML
-    void showOrdersButton(ActionEvent event) {
-        String text = "";
-        currentOrders.setText(text);
+        System.out.println("Size of Hashtable: " + customerNameTable.size());
+        System.out.println("Hashtable:\n" + customerNameTable);
+        System.out.println("\n-=BREAK=-\n");
     }
 
     @FXML
@@ -133,8 +131,13 @@ public class HelloController implements Initializable {
 
     //On enter button press will update customer name map
     @FXML
-    void searchCustomerName(ActionEvent event) {
-
+    void searchCustomerName(ActionEvent event) throws NoSuchFieldException, IllegalAccessException {
+        //Temporary ArrayList
+        ArrayList<Transaction> tempTransaction = new ArrayList<>();
+        //Runs inOrder search using name parameter
+        transactionList.inOrderName(searchOrdersText.getText(), tempTransaction);
+        //Sets text field to the order
+        currentOrders.setText(tempTransaction.get(0).toString());
     }
 
     @FXML
@@ -142,17 +145,38 @@ public class HelloController implements Initializable {
         //Adds current drinks in order to a transaction and then adds the transaction to a transaction BST
         ArrayList<Drink> currentDrinks = new ArrayList<Drink>();
         Transaction transaction = new Transaction();
+        double cost = 0;
         while(drinkQueue.size() > 0) {
             currentDrinks.add(drinkQueue.remove());
         }
-        transaction.setCustomerName(customerNameField.getText());
-        transaction.setDrinks(currentDrinks);
-        transactionList.insert(transaction);
 
+        for (Drink currentDrink : currentDrinks) {
+            String[] temp = currentDrink.getDrinkPrice();
+            cost += Double.parseDouble(temp[1]);
+        }
 
         //Creates a hash map for the customer name and order number
-        Hash orderNumber = new Hash(customerNameField.getText());
-        customerName.put(customerNameField.getText(), orderNumber.hashValue);
+        if(customerNameTable.containsKey(customerNameField.getText())) {
+            TextInputDialog inputDialog = new TextInputDialog();
+            inputDialog.setHeaderText("Enter a last name: ");
+            Optional<String> result = inputDialog.showAndWait();
+            if(result.isPresent()) {
+                String userInput = result.get();
+                customerNameTable.put(customerNameField.getText() + " " + userInput, orderNumber);
+                transaction.setCustomerName(customerNameField.getText() + " " + userInput);
+            }
+        } else {
+            customerNameTable.put(customerNameField.getText(), orderNumber);
+            transaction.setCustomerName(customerNameField.getText());
+        }
+
+        //Sets all the transaction data based on grande sized prices
+        transaction.setDrinks(currentDrinks);
+        transaction.setPaymentMethod("Credit Card");
+        transaction.setTotal(cost);
+        transactionList.insert(transaction);
+
+        orderNumber++;
     }
 
     //Buttons for every drink
@@ -250,6 +274,33 @@ public class HelloController implements Initializable {
         finalLabel.setText(currentDrink.toString());
 
     }
+
+    @FXML
+    //This is my example of networking
+    void printTransactionClicked(ActionEvent event) throws IOException {
+        //Note this will only work with a wireless printer and if it can accept the data
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        transactionList.inOrderReturnTransaction(transactions);
+        String printData = "";
+        for(Transaction trans : transactions) {
+//            System.out.println(trans);
+            printData += trans.toString();
+        }
+        Socket printer = new Socket("10.0.0.65", 9100);
+        OutputStream output = printer.getOutputStream();
+        output.write(printData.getBytes(StandardCharsets.UTF_8));
+
+        output.flush();
+        System.out.println("Output Flushed");
+        output.close();
+        System.out.println("Output Closed");
+        printer.close();
+        System.out.println("Printer Closed");
+    }
+
+
+
+
 
     private String[] coffees;
 
